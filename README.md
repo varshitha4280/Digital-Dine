@@ -1,4 +1,4 @@
-# Digital-Dine
+# Digital-Dine-Online-Food-Ordering-System
 
 🍽️ Digital Dine – Online Food Ordering System
 📌 Overview
