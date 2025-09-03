@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Menu & Order</title>
+    <style>
+        body { font-family: sans-serif; }
+        .navbar {
+            display: flex;
+            justify-content: flex-start;  /* Distribute space between logo and links */
+            align-items: center; /* Vertically align items */
+            padding: 10px 20px; /* Add padding */
+        }
+          
+        .navbar-brand {
+            display: flex; /* Make brand a flex container for alignment */
+            align-items: center;
+            margin-right: 600px;
+        }
+          
+        .navbar-brand img {
+            height: 200px; /* Adjust logo height as needed */
+            margin-left: 150px; /* Add space between logo and text */
+        }
+          
+        .navbar-nav {
+            display: flex; /* Make nav links a flex container */
+        }
+          
+        .nav-link {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555; /* Slightly darker grey */
+            font-size: 16px;
+            font-family: 'Arial', sans-serif; /* Use a similar font */
+        }
+          
+        .nav-link:hover {
+            color: #0e0e0e; /* Darker grey on hover */
+        }
+
+        .menu-container { border: 1px solid #ccc; padding: 10px; margin-bottom: 20px; }
+        .menu-item { display: flex; justify-content: space-between; padding: 5px; border-bottom: 1px solid #eee; }
+        .cart-item { display: flex; justify-content: space-between; padding: 5px; }
+        .cart { border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
+        .menu-item {
+            display: grid; /* Use grid layout */
+            grid-template-columns: 1fr 100px 80px; /* Adjust columns as needed */
+            align-items: center; /* Vertically align items */
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .menu-item span:nth-child(2) {
+            text-align: center; /* Center the price text */
+        }
+        
+        .menu-item button {
+            justify-self: end; /* Align the "Add" button to the right */
+        }
+        .cart-header {
+            display: grid;
+            grid-template-columns: 1fr 100px; /* Adjust width as needed */
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold; /* Make headers bold */
+        }
+        
+        .item-header {
+            text-align: left;
+        }
+        
+        .price-header {
+            text-align: right;
+        }
+        
+        .cart-item { /* Existing cart item styles */
+            display: grid;
+            grid-template-columns: 1fr 100px; /* Adjust width as needed */
+            align-items: center;
+            padding: 5px;
+        }
+        
+        .cart-item span:nth-child(2) {
+            text-align: right;
+        }
+        button {
+            background-color: #f0f0f0; /* Light grey background */
+            border: 1px solid #ccc; /* Light grey border */
+            padding: 8px 16px; /* Adjust padding as needed */
+            margin: 5px; /* Add spacing between buttons */
+            border-radius: 4px; /* Slightly rounded corners */
+            font-size: 14px; /* Adjust font size as needed */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+        
+        button:hover {
+            background-color: #ddd; /* Darker grey on hover */
+        }
+        /* Previous CSS */
+        .order-heading {
+            font-size: 36px; /* Adjust as needed */
+            font-family: 'Arial', sans-serif; /* Match the logo's font */
+            font-weight: bold; /* Make it bold */
+            color: #0a0a0a; /* Dark grey color */
+            letter-spacing: 1px; /* Add letter spacing */
+            margin-bottom: 20px; /* Add bottom margin */
+            text-transform: capitalize; 
+            transform: skew(-10deg);
+        }
+        
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-munch-img.png" class="food-munch-logo" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="index6.html" id="navItem5">Home Page</a>
+                <a class="nav-link" href="index3.html" id="navItem5">Order Now</a>
+                <a class="nav-link" href="index4.html" id="navItem5">Order History</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="order-heading" style="text-align:center;">Order</h1>
+
+        <div id="container-list">
+            <button onclick="displayMenu('Bombay_Chatwala')">Bombay Chatwala</button>
+            <button onclick="displayMenu('Godavari_Ruchulu')">Godavari Ruchulu</button>
+            <button onclick="displayMenu('Hill_View')">Hill View</button>
+            <button onclick="displayMenu('Juice_Club')">Juice Club</button>
+            <button onclick="displayMenu('Namus_Cake_Shop')">Namus Cake Shop</button>
+            <button onclick="displayMenu('Raja_Restaurant')">Raja Restaurant</button>
+        </div>
+
+        <div id="menu-area"></div>
+
+        <div class="cart" id="cart-area">
+            <h2>Your Cart</h2>
+            <div class="cart-header">
+                <span class="item-header">Items</span>
+                <span class="price-header">Price</span>
+            </div>
+            <div id="cart-items"></div>
+            <p>Total: <span id="cart-total">0</span></p>
+            <button onclick="clearCart()">Clear Cart</button>
+            <button onclick="placeOrder()">Place Order</button>
+        </div>
+
+        <div class="order-status" id="order-status-area"></div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentContainer = null;
+
+        async function displayMenu(containerName) {
+            currentContainer = containerName;
+            const menuArea = document.getElementById('menu-area');
+            menuArea.innerHTML = '';
+
+            try {
+                const response = await fetch(`http://localhost:3004/api/menu/${containerName}`);
+                const menuData = await response.json();
+
+                menuData.forEach(item => {
+                    const menuItem = document.createElement('div');
+                    menuItem.className = 'menu-item';
+                    menuItem.innerHTML = `<span>${item.name}</span><span>₹${item.price}</span><button onclick="addToCart('${item.name}', ${item.price})">Add</button>`;
+                    menuArea.appendChild(menuItem);
+                });
+            } catch (error) {
+                console.error('Error fetching menu:', error);
+                menuArea.innerHTML = '<p>Failed to load menu.</p>';
+            }
+        }
+
+        function addToCart(itemName, price) {
+            cart.push({ name: itemName, price: price, quantity: 1, container: currentContainer });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function clearCart() {
+            cart =[]; // Clear the cart array
+            localStorage.removeItem('cart'); // Remove cart from localStorage
+            updateCartDisplay(); // Update the cart display
+        }
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `<span>${item.name} x ${item.quantity}</span><span>₹${item.price * item.quantity}</span>`;
+                cartItems.appendChild(cartItem);
+                total += item.price * item.quantity;
+            });
+
+            cartTotal.textContent = total;
+        }
+
+        async function placeOrder() {
+
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert("Please log in to place an order.");
+                window.location.href = "index1.html"; // Redirect to login page
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            try {
+
+                const token = localStorage.getItem('token'); // Retrieve token
+                const response = await fetch('http://localhost:3004/api/orders', {
+                method: 'POST',
+                headers: {
+                   'Content-Type': 'application/json',
+                   'Authorization': `Bearer ${token}`, // Include token
+                }, 
+                body: JSON.stringify({ items: cart, orderDateTime: new Date() }),
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.removeItem('cart');
+                    cart = [];
+                    updateCartDisplay();
+                    document.getElementById('order-status-area').innerHTML = `<p>Order placed! Your order ID is: ${data.orderId}</p>`;
+                } else if (response.status === 401) {
+                    alert("Your session has expired. Please log in again.");
+                    window.location.href = "index1.html"; // Redirect to login
+                } else {
+                    console.error('Error placing order:', response.status);
+                    alert('An error occurred while placing your order. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error placing order:', error);
+                alert('An error occurred while placing your order. Please try again.');
+            }
+        }
+
+        updateCartDisplay();
+    </script>
+</body>
+</html>

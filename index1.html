@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-munch-img.png" class="food-munch-logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active" id="navItem1" href="#wcuSection">
+                        Why Choose Us?
+                        <span class="sr-only">(current)</span>
+                    </a>
+                    <a class="nav-link" href="#exploreMenuSection" id="navItem2">Explore Menu</a>
+                    <a class="nav-link" href="index3.html" id="navItem5">Order Now</a>
+                    <a class="nav-link" href="index4.html" id="navItem5">Order History</a>
+                    <a class="nav-link" href="#deliveryPaymentSection" id="navItem3">Delivery & Payment</a>
+                    <a class="nav-link" href="#followUsSection" id="navItem4">Follow Us</a>
+                    <a class="nav-link" href="index5.html" id="navItem4">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>// db.js
+    <div class="banner-section-bg-container d-flex justify-content-center flex-column">
+        <div class="text-center">
+            <h1 class="banner-heading mb-3">Get Delicious Food Anytime</h1>
+            <p class="banner-caption mb-4">Eat Smart & Healthy</p>
+            <button class="custom-button">View Menu
+            </button>
+            <button class="custom-outline-button">Order Now</button>
+        </div>
+    </div>
+    <div class="wcu-section pt-5 pb-5" id="wcuSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="wcu-section-heading">Why Choose Us?</h1>
+                    <p class="wcu-section-description">
+                        We use both original recipes and classic versions of famous food
+                        items.
+                    </p>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="wcu-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-serve.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Food Service</h1>
+                        <p class="wcu-card-description">
+                            Experience fine dining at the comfort of your home. All our
+                            orders are carefully packed and arranged to give you the nothing
+                            less than perfect.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="wcu-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/fruits-img.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Fresh Food</h1>
+                        <p class="wcu-card-description">
+                            The Fresh Food group provides fresh-cut fruits and vegetables
+                            directly picked from our partner farms and farm houses so that
+                            you always get them tree to plate.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="wcu-card p-3 mb-3">
+                        <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/offers-img.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Best Offers</h1>
+                        <p class="wcu-card-description">
+                            Food Coupons & Offers upto
+                            <span class="offers">50% OFF</span>
+                            and Exclusive Promo Codes on All Online Food Orders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><div class="explore-menu-section pt-5 pb-5" id="exploreMenuSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="menu-section-heading">Explore Menu</h1>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="shadow menu-item-card p-3 mb-3">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.4PfvdgJliCHT7vdGoot1CgHaHa&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Bombay Chatwala</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal3">
+                        View All
+                        
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="shadow menu-item-card p-3 mb-3">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.kjWVQQDbVk4U480VpBlV4wHaEJ&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Godavari Ruchulu</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal4">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="menu-item-card shadow p-3 mb-3">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.x1SjnyHWY41UKAHC3QinIgAAAA&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Namu's Cake Shop</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal10">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="gtlevenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="menu-item-card shadow p-3 mb-3">
+                    <img src="https://tse1.mm.bing.net/th?id=OIP.58c09187xJRNRAzFwf6nbQHaE8&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Raja Restaurant</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal11">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="menu-item-card shadow p-3 mb-3">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP._blfoqifMDWTrvscmD2-tgHaKF&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Hill View</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal12">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="menu-item-card shadow p-3 mb-3">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.3Uz3Ee3sckuoxErAXL3A6AHaHa&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Juice Club</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal13">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="menu-item-card shadow p-3 mb-3">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.Qusn7abA1hX3JAfStbFHlwHaJQ&pid=Api&P=0&h=220" style="border-radius:5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Vasu's Cafe</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal14">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="menu-item-card shadow p-3 mb-3">
+                    <img src="https://tse2.mm.bing.net/th?id=OIP.Lnj8P8iAZmUT0ZlML9ylzAHaHZ&pid=Api&P=0&h=220" style="border-radius: 5px;" width="200px" height="210px" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">Sri Andal Snacks and Soups</h1>
+                    <a href="" class="menu-item-link" data-toggle="modal" data-target="#exampleModal15">
+                        View All
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-arrow-right" fill="#d0b200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="healthy-food-section pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <div class="text-center">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/healthy-food-plate-img.png" class="healthy-food-section-img" />
+                </div>
+            </div>
+            <div class="col-12 col-md-7">
+                <h1 class="healthy-food-section-heading">
+                    Fresh, Healthy, Organic, Delicious Fruits
+                </h1>
+                <p class="healthy-food-section-description">
+                    Say no to harmful chemicals and go fully organic with our range of
+                    fresh fruits and veggies. Pamper your body and your senses with
+                    the true and unadulterated gifts from mother nature. with the true
+                    and unadulterated gifts from mother nature.
+                </p>
+                <button class="custom-button">Watch Video</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="delivery-and-payment-section pt-5 pb-5" id="deliveryPaymentSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5 order-1 order-md-2">
+                <div class="text-center">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/delivery-payment-section-img.png" class="delivery-and-payment-section-img" />
+                </div>
+            </div>
+            <div class="col-12 col-md-7 order-2 order-md-1">
+                <h1 class="delivery-and-payment-section-heading">
+                    Delivery and Payment
+                </h1>
+                <p class="delivery-and-payment-section-description">
+                    Enjoy hassle-free payment with the plenitude of payment options
+                    available for you. Get live tracking and locate your food on a
+                    live map. It's quite a sight to see your food arrive to your door.
+                    Plus, you get a 5% discount on every order every time you pay
+                    online.
+                </p>
+                <button><a class="nav-link" href="index3.html" id="navItem5" style="color: black;">Order Now</a></button>
+                <div class="mt-3">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/visa-card-img.png" class="payment-card-img" />
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/master-card-img.png" class="payment-card-img" />
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/paypal-card-img.png" class="payment-card-img" />
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/american-express-img.png" class="payment-card-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="thanking-customers-section pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-7 d-flex flex-column justify-content-center">
+                <h1 class="thanking-customers-section-heading">
+                    Thank you for being a valuable customer to us.
+                </h1>
+                <p class="thanking-customers-section-description">
+                    We have a surprise gift for you
+                </p>
+                <div class="d-md-none">
+                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+                </div>
+                <div>
+                    <button type="button" class="custom-button" data-toggle="modal" data-target="#exampleModal">
+                        Redeem Gift
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog mt-5">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                        Gift Voucher
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/gift-voucher-img.png" class="w-100" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog mt-5">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                        Menu
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="menu-section pt-5 pb-5" id="menuSection">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <h4 class="menu-category">Bombay Chatwala Menu</h4>
+                                                <ul class="menu-list">
+                                                    <li>PopCorn</li>
+                                                    <li>Masala Tea</li>
+                                                    <li>Tandoori Tea</li>
+                                                    <li>Panipuri - 3pcs</li>
+                                                    <li>Only Chapati</li>
+                                                    <li>Sandwich (Veg)</li>
+                                                    <li>(Paneer/Mushroom)</li>
+                                                    <li>Kalan Chaat</li>
+                                                    <li>Samosa Chaat</li>
+                                                    <li>Vada Pav/Missal Pav</li>
+                                                    <li>Sandwich (Paneer/Mushroom)</li>
+                                                    <li>Tandoori Tea</li>
+                                                    <li>(Paneer/Mushroom)</li>
+                                                    <li>Chili (Paneer/Mushroom)</li>
+                                                    <li>Paratha (Paneer/Mushroom)</li>
+                                                    <li>Panipuri Special</li>
+                                                    <li>Panipuri Classic</li>
+                                                    <li>PopCorn (Full)</li>
+                                                    <li>Samosa Chaat</li>
+                                                    <li>Vada Pav - 2pcs</li>
+                                                    <li>Pav Bhaji - 2pcs</li>
+                                                    <li>Spicy Pasta</li>
+                                                    <li>Bread Pakoda</li>
+                                                    <li>Chapati (2pcs)</li>
+                                                    <li>Dahi Puri</li>
+                                                    <li>Bhel Puri</li>
+                                                    <li>Masala Chaat</li>
+                                                    <li>Masala Puri</li>
+                                                    <li>Sev Puri</li>
+                                                    <li>Dahi Bhalla</li>
+                                                    <li>Aloo Kachori</li>
+                                                    <li>Spring Potatoes</li>
+                                                  </ul>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog mt-5">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                        Menu
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="menu-section pt-5 pb-5" id="menuSection">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <h4 class="menu-category">Bombay Chatwala</h4>
+                                                <ul class="menu-list">
+                                                    <li>PopCorn</li>
+                                                    <li>Masala Tea</li>
+                                                    <li>Tandoori Tea</li>
+                                                    <li>Panipuri - 3pcs</li>
+                                                    <li>Only Chapati</li>
+                                                    <li>Sandwich (Veg)</li>
+                                                    <li>(Paneer/Mushroom)</li>
+                                                    <li>Kalan Chaat</li>
+                                                    <li>Samosa Chaat</li>
+                                                    <li>Vada Pav/Missal Pav</li>
+                                                    <li>Sandwich (Paneer/Mushroom)</li>
+                                                    <li>Tandoori Tea</li>
+                                                    <li>(Paneer/Mushroom)</li>
+                                                    <li>Chili (Paneer/Mushroom)</li>
+                                                    <li>Paratha (Paneer/Mushroom)</li>
+                                                    <li>Panipuri Special</li>
+                                                    <li>Panipuri Classic</li>
+                                                    <li>PopCorn (Full)</li>
+                                                    <li>Samosa Chaat</li>
+                                                    <li>Vada Pav - 2pcs</li>
+                                                    <li>Pav Bhaji - 2pcs</li>
+                                                    <li>Spicy Pasta</li>
+                                                    <li>Bread Pakoda</li>
+                                                    <li>Chapati (2pcs)</li>
+                                                    <li>Dahi Puri</li>
+                                                    <li>Bhel Puri</li>
+                                                    <li>Masala Chaat</li>
+                                                    <li>Masala Puri</li>
+                                                    <li>Sev Puri</li>
+                                                    <li>Dahi Bhalla</li>
+                                                    <li>Aloo Kachori</li>
+                                                    <li>Spring Potatoes</li>
+                                                  </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog mt-5">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                        Menu
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="menu-section pt-5 pb-5" id="menuSection">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12 col-md-6">
+                                                <h4 class="menu-category">Godavari Ruchulu</h4>
+                                                <ul class="menu-list">
+                                                    <li>UPMA DOSA</li>
+                                                    <li>PODI DOSA</li>
+                                                    <li>ONION DOSA</li>
+                                                    <li>MASALA DOSA</li>
+                                                    <li>PLAIN DOSA</li>
+                                                    <li>PESARATTU</li>
+                                                    <li>UPMA PESARATTU</li>
+                                                    <li>KAARAM MASALA DOSA</li>
+                                                    <li>KAARAM ONION DOSA</li>
+                                                    <li>KAARAM PODI DOSA</li>
+                                                    <li>GHEE DOSA</li>
+                                                    <li>GHEE KAARAM DOSA</li>
+                                                    <li>GHEE MASALA DOSA</li>
+                                                    <li>GHEE ONION DOSA</li>
+                                                    <li>GHEE PODI DOSA</li>
+                                                    <li>GHEE UPMA DOSA</li>
+                                                    <li>GHEE KAARAM MASALA DOSA</li>
+                                                    <li>GHEE KAARAM ONION DOSA</li>
+                                                    <li>GHEE KAARAM PODI DOSA</li>
+                                                    <li>GHEE PESARATTU</li>
+                                                    <li>GHEE UPMA PESARATTU</li>
+                                                    <li>PUMOSULO (10 PCS)</li>
+                                                    <li>MYSORE BONDA (5 PCS)</li>
+                                                    <li>POORI (2 PCS)</li>
+                                                    <li>ANDHRA GODHUMA RAVA UPMA</li>
+                                                    <li>ANDHRA RAVA IDLY (3 PCS)</li>
+                                                    <li>MINAPA GARELU</li>
+                                                    <li>ANDHRA GODHUMA KESARI</li>
+                                                    <li>CHAPATI - ANDHRA SPICY CURRY (2 PCS)</li>
+                                                    <li>PULKA - ANDHRA SPICY CURRY (3 PCS)</li>
+                                                    <li>ANDHRA SPECIAL VEG MEALS (LIMITED)</li>
+                                                    <li>ANDHRA VEG BIRIYANI - CURRY</li>
+                                                    <li>COMBO-1 (1 PC PLAIN DOSA, 1 PC POORI, 2 PCS MYSORE BONDA)</li>
+                                                    <li>COMBO-2 (1 PC MASALA DOSA, 1 PC POORI, 2 PCS MYSORE BONDA)</li>
+                                                    <li>COMBO-3 (1 PC PODI DOSA, 2 PCS MYSORE BONDA)</li>
+                                                    <li>Parcel (Extra)</li>
+                                                  </ul>
+                                            </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+            <div class="col-12 col-md-5 d-none d-md-block">
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/thanking-customers-section-img.png" class="thanking-customers-section-img" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="follow-us-section pt-5 pb-5" id="followUsSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="follow-us-section-heading">Follow Us</h1>
+            </div>
+            <div class="col-12">
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="follow-us-icon-container">
+                        <i class="fab fa-twitter icon"></i>
+                    </div>
+                    <div class="follow-us-icon-container">
+                        <i class="fab fa-instagram icon"></i>
+                    </div>
+                    <div class="follow-us-icon-container">
+                        <i class="fab fa-facebook icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer-section pt-5 pb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-munch-logo-light.png" class="food-munch-logo" />
+                <h1 class="footer-section-mail-id">orderfood@foodmunch.com</h1>
+                <p class="footer-section-address">
+                    Kalasalingam University, Krishnankovil, Tamil Nadu, India, 626126.
+                </p>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mt-5">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                            Menu
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="menu-section pt-5 pb-5" id="menuSection">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <h4 class="menu-category">Namu's Cake Shop</h4>
+                                    <ul class="menu-list">
+                                        <li>Chocolate Bun</li>
+                                        <li>Masala Bun</li>
+                                        <li>Garlic Bread</li>
+                                        <li>Bread</li>
+                                        <li>Eggless Classic Brownie</li>
+                                        <li>Cakey Brownie</li>
+                                        <li>Extra Ice-Cream</li>
+                                        <li>Chocolate Waffle (Half)</li>
+                                        <li>Chocolate Waffle (Full)</li>
+                                        <li>Chocochip Cupcake</li>
+                                        <li>Veg Puff</li>
+                                    </ul>
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog mt-5">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                    Menu
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="menu-section pt-5 pb-5" id="menuSection">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <h4 class="menu-category">Raja Restaurant</h4>
+                                            <ul class="menu-list">
+                                                <li>One Plate Idly</li>
+                                                <li>Pongal</li>
+                                                <li>Poori One Plate</li>
+                                                <li>Vadai</li>
+                                                <li>Sambar Rice</li>
+                                                <li>Tomato Rice</li>
+                                                <li>Lemon Rice</li>
+                                                <li>Tamarind Rice</li>
+                                                <li>Veg Biriyani</li>
+                                                <li>Curd Rice</li>
+                                                <li>Chapati One Piece</li>
+                                                <li>Parotta One Piece</li>
+                                                <li>Veg Kothu Parotta</li>
+                                                <li>Special Dosai</li>
+                                                <li>Nice Dosai</li>
+                                                <li>Ghee Dosai</li>
+                                                <li>Onion Dosai</li>
+                                                <li>Podi Dosai</li>
+                                                <li>Masala Dosai</li>
+                                                <li>Kal Dosai</li>
+                                                <li>Kara Dosai</li>
+                                              </ul>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog mt-5">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                    Menu
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="menu-section pt-5 pb-5" id="menuSection">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <h4 class="menu-category">Hill View</h4>
+                                            <ul class="menu-list">
+                                                <li>Herbal Tea</li>
+                                                <li>Payasam</li>
+                                                <li>Kerala Snacks</li>
+                                                <li>Appam with Curry</li>
+                                                <li>Puttu with Curry</li>
+                                                <li>Idyappam with Curry</li>
+                                                <li>Pasta</li>
+                                                <li>Ghee Rice with Curry</li>
+                                                <li>Kappa Briyani</li>
+                                                <li>Pakka Vada</li>
+                                                <li>Cheese Fries</li>
+                                                <li>French Fries</li>
+                                              </ul>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog mt-5">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                    Menu
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="menu-section pt-5 pb-5" id="menuSection">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <h4 class="menu-category">Juice Club</h4>
+                                            <ul class="menu-list">
+                                                <li>Fresh Lemon Juice</li>
+                                                <li>Sarbath</li>
+                                                <li>Lemon Saltsoda</li>
+                                                <li>Rose Milk</li>
+                                                <li>Fruit Mixer</li>
+                                                <li>Badham Fruit Mixer</li>
+                                                <li>Rose Mixer</li>
+                                                <li>Badham Milk</li>
+                                                <li>Watermelon Juice</li>
+                                                <li>Papaya Juice</li>
+                                                <li>Amla Juice</li>
+                                                <li>Mango Juice</li>
+                                                <li>Pineapple Juice</li>
+                                                <li>Grapes Juice</li>
+                                                <li>Dates Juice</li>
+                                                <li>Chathukudi Juice</li>
+                                                <li>Muskmelon Juice</li>
+                                                <li>Orange Juice</li>
+                                                <li>Fig Fruit Juice</li>
+                                                <li>Apple Juice</li>
+                                                <li>Pomegranate Juice</li>
+                                                <li>Rose Milkshake</li>
+                                                <li>Badam Milk Shake</li>
+                                                <li>Papaya Shake</li>
+                                                <li>Grape Shake</li>
+                                                <li>Vannila Milkshake</li>
+                                                <li>Chocolate Milk Shake</li>
+                                                <li>Pista Milk Shake</li>
+                                                <li>Dates Shake</li>
+                                                <li>Mango Shake</li>
+                                                <li>Oreo Milk Shake</li>
+                                                <li>Orange Shake</li>
+                                                <li>Fig Fruit Shake</li>
+                                                <li>Butterscotch Milk Shake</li>
+                                                <li>Pomegranate Milk Shake</li>
+                                              </ul>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog mt-5">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                    Menu
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="menu-section pt-5 pb-5" id="menuSection">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <h4 class="menu-category">Vasu's Cafe</h4>
+                                            <ul class="menu-list">
+                                                <li>TEA</li>
+                                                <li>COFFEE</li>
+                                                <li>BOOST, HORLICKS</li>
+                                                <li>COLD BOOST</li>
+                                                <li>BLACK TEA</li>
+                                                <li>BLACK COFFEE</li>
+                                                <li>GREEN TEA</li>
+                                                <li>COLD COFFEE</li>
+                                                <li>FLAVOURED MILK</li>
+                                                <li>BUTTER MILK</li>
+                                                <li>SAMOSA</li>
+                                                <li>PUFF - VEG</li>
+                                                <li>PUFF - MUSHROOM</li>
+                                                <li>PUFF - PANEER</li>
+                                                <li>ROLLS - VEG, PANEER</li>
+                                                <li>VEG CUTLET</li>
+                                                <li>SANDWICH - VEG</li>
+                                                <li>FRANKIE - VEG</li>
+                                                <li>BAJJI</li>
+                                                <li>KUZHI PANIYARAM</li>
+                                              </ul>
+                                            
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="modal fade" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog mt-5">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title thanking-customers-section-modal-title" id="exampleModalLabel">
+                                    Menu
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="menu-section pt-5 pb-5" id="menuSection">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <h4 class="menu-category">Sri Andal Snacks and Soups</h4>
+                                            <ul class="menu-list">
+                                                <li>Nilakadalai Paruppu</li>
+                                                <li>Pasi Payaru</li>
+                                                <li>Vellai & Karuppu Sundal</li>
+                                                <li>Pattani</li>
+                                                <li>Kolukattai (2 pcs)</li>
+                                                <li>Murungal Soup</li>
+                                                <li>Mudakathan Soup</li>
+                                                <li>Mudavattukal Kilangu Soup</li>
+                                                <li>Butter Bun</li>
+                                                <li>Ghee Paniyaram</li>
+                                                <li>Karupatti Coffee</li>
+                                                <li>Honey Lemon Tea</li>
+                                                <li>Kappa Kilangu</li>
+                                                <li>Rava Upma & Kesari</li>
+                                                <li>Plece Biscuit</li>
+                                                <li>Mixture</li>
+                                                <li>Mini Jangiri (3 pcs)</li>
+                                                <li>Bread Palkova</li>
+                                              </ul>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+
+
+
+
+
+</body>
+
+</html>

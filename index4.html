@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order History</title>
+
+    <style>
+        .order-history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+    
+        .order-history-table th, .order-history-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    
+        .order-history-table th {
+            background-color: #f4f4f4;
+        }
+    
+        .order-history-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    
+        .order-history-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        /* Download Button Styles */
+        .download-button {
+            background-color: #0f0f0f; /* Green background */
+            border: none;
+            color: rgb(252, 250, 250);
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .download-button:hover {
+            background-color: #c6f41f; /* Darker green on hover */
+        }
+        .navbar {
+            display: flex;
+            justify-content: flex-start; /* Distribute space between logo and links */
+            align-items: center; /* Vertically align items */
+            padding: 10px 20px; /* Add padding */
+        }
+          
+        .navbar-brand {
+            display: flex; /* Make brand a flex container for alignment */
+            align-items: center;
+            margin-right: 600px;
+        }
+          
+        .navbar-brand img {
+            height: 200px; /* Adjust logo height as needed */
+            margin-left: 150px; /* Add space between logo and text */
+        }
+          
+        .navbar-nav {
+            display: flex; /* Make nav links a flex container */
+        }
+          
+        .nav-link {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #555; /* Slightly darker grey */
+            font-size: 16px;
+            font-family: 'Arial', sans-serif; /* Use a similar font */
+        }
+          
+        .nav-link:hover {
+            color: #0e0e0e; /* Darker grey on hover */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-responsive-website/food-munch-img.png" class="food-munch-logo" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link" href="index6.html" id="navItem5">Home Page</a>
+                <a class="nav-link" href="index3.html" id="navItem5">Order Now</a>
+                <a class="nav-link" href="index4.html" id="navItem5">Order History</a>
+            </div>
+        </div>
+    </nav>
+    <h1 style="text-align:center;">Order History</h1>
+
+    <div id="order-history">
+        </div>
+    <button class="download-button" onclick="downloadOrderHistory()">Download Order History</button> <div id="order-history"></div>
+    <script>
+        async function fetchOrderHistory() {
+            console.log("fetchOrderHistory() called."); // Check if this logs
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.log("Token missing."); // Check if this logs
+                alert("Please log in to view order history.");
+                console.log("Redirecting to index1.html"); // Check if this logs
+                window.location.href = "index1.html";
+                console.log("Redirection attempted."); // Check if this logs
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3004/api/orders/history', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                    },
+                });
+
+                if (response.ok) {
+                    const orders = await response.json();
+                    displayOrderHistory(orders); // Pass orders to display function
+                } else if (response.status === 401) {
+                    alert("Your session has expired. Please log in again.");
+                    window.location.href = "index1.html";
+                } else {
+                    console.error('Error fetching order history:', response.status);
+                    alert('Failed to fetch order history.');
+                }
+            } catch (error) {
+                console.error('Error fetching order history:', error);
+                alert('Failed to fetch order history.');
+            }
+        }
+
+        function displayOrderHistory(orders) {
+            const orderHistoryDiv = document.getElementById('order-history');
+            orderHistoryDiv.innerHTML = ''; // Clear previous content
+
+            if (orders.length === 0) {
+                orderHistoryDiv.innerHTML = '<p>No orders found.</p>';
+                return;
+            }
+
+            const table = document.createElement('table');
+            table.className = 'order-history-table';
+
+            const header = document.createElement('tr');
+            header.innerHTML = `
+                <th>Order ID</th>
+                <th>Date & Time</th>
+                <th>Container</th>
+                <th>Items</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            `;
+            table.appendChild(header);
+
+            orders.forEach(order => {
+                let totalPrice = 0;
+                const groupedItems = {};
+
+                // Group items by name and container
+                order.items.forEach(item => {
+                    const key = `${item.name}-${item.container}`;
+                    if (groupedItems[key]) {
+                        groupedItems[key].quantity += item.quantity;
+                    } else {
+                        groupedItems[key] = { ...item };
+                    }
+                    totalPrice += item.price * item.quantity; // Calculate total price for each item
+                });
+
+                // Create table rows for grouped items
+                Object.values(groupedItems).forEach(item => {
+                    const orderRow = document.createElement('tr');
+                    orderRow.innerHTML = `
+                        <td>${order.orderId}</td>
+                        <td>${item.formattedDateTime}</td>
+                        <td>${item.container}</td>
+                        <td>${item.name}</td>
+                        <td>₹${item.price}</td>
+                        <td>${item.quantity}</td>
+                        <td>₹${item.price * item.quantity}</td>
+                    `;
+                    table.appendChild(orderRow);
+                });
+
+                // Add a row for the total price of the order
+                const totalRow = document.createElement('tr');
+                totalRow.innerHTML = `
+                    <td colspan="6" style="text-align: right;"><strong>Total:</strong></td>
+                    <td>₹${totalPrice}</td>
+                `;
+                table.appendChild(totalRow);
+            });
+
+            orderHistoryDiv.appendChild(table);
+        }
+
+        function downloadOrderHistory() {
+            const orderHistoryDiv = document.getElementById('order-history');
+            if (!orderHistoryDiv || orderHistoryDiv.innerHTML.trim() === '') {
+                alert("No order history to download.");
+                return;
+            }
+        
+            // Clone the order history div to avoid modifying the original
+            const clone = orderHistoryDiv.cloneNode(true);
+        
+            // Remove the download button from the cloned content
+            const downloadButton = clone.querySelector('.download-button');
+            if (downloadButton) {
+                downloadButton.remove();
+            }
+        
+            // Wrap in a container with a fixed width to prevent cutoff
+            const pdfContainer = document.createElement('div');
+            pdfContainer.style.width = "100%";
+            pdfContainer.style.maxWidth = "900px"; // Ensures proper fit
+            pdfContainer.innerHTML = `
+                <h1 style="text-align:center;">Order History</h1>
+                <div style="width: 100%; margin: auto;">
+                    ${clone.innerHTML}
+                </div>
+            `;
+        
+            // Apply styles to prevent content cutoff and force page breaks
+            const pdfOptions = {
+                margin: 10,  // Increased margin to avoid cropping
+                filename: 'Order_History.pdf',
+                image: { type: 'jpeg', quality: 1 }, // High quality
+                html2canvas: { scale: 2, useCORS: true, logging: true }, // Fix rendering issues
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } // Prevents content splitting
+            };
+        
+            // Convert to PDF
+            html2pdf()
+                .from(pdfContainer)
+                .set(pdfOptions)
+                .toPdf()
+                .get('pdf')
+                .then((pdf) => {
+                    // Ensure last page is fully captured
+                    pdf.internal.pageSize.height += 10;
+                })
+                .save();
+        }
+        
+        
+        
+        
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchOrderHistory();
+        }); // Call fetchOrderHistory once
+    </script>
+    
+</body>
+</html>

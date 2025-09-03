@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+
+    <title>Login Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e7eaf3, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .login-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        
+        .login-box h2 {
+            margin: 0 0 20px 0;
+        }
+        
+        .login-box p {
+            margin: 0 0 10px 0;
+            color: #777;
+        }
+        
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .login-box a {
+            color: #007BFF;
+            text-decoration: none;
+            padding: 10px 10px;
+        }
+        
+        .login-box a:hover {
+            text-decoration: underline;
+        }
+        
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .login-box button:hover {
+            background-color: #0056b3;
+            
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box" id="loginForm">
+            <h2>Login</h2>
+            <form>
+                <input type="email" id="email" name="email" autocomplete="email" placeholder="youremail@gmail.com" required>
+                <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Password" required>
+                <a href="#" style="font-size: 13px;">Forgot Password?</a>
+                <button type="submit">Continue</button>
+            </form>
+          
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            try {
+                const response = await fetch('http://localhost:3004/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password }),
+                });
+        
+                const data = await response.json();
+                console.log('Login response:', data);
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = 'index6.html'; 
+                } else {
+                    alert(data.error);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert('An error occurred');
+            }
+        });
+    </script>
+</body>
+</html>
